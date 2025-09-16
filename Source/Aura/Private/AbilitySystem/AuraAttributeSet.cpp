@@ -2,6 +2,7 @@
 
 
 #include "AbilitySystem/AuraAttributeSet.h"
+#include "GameplayEffectExtension.h"
 #include  "Net/UnrealNetwork.h"
 
 UAuraAttributeSet::UAuraAttributeSet()
@@ -37,6 +38,15 @@ void UAuraAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, 
 	}
 
 	
+}
+
+void UAuraAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
+{
+	Super::PostGameplayEffectExecute(Data);
+
+	FGameplayEffectContextHandle  EffectContextHandle = Data.EffectSpec.GetContext();
+
+	//Data.EffectSpec
 }
 
 void UAuraAttributeSet::On_Rep_Health(const FGameplayAttributeData& OldHealth) const
