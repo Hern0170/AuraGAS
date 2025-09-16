@@ -36,7 +36,7 @@ void AAuraEffectActor::ApplyEffectToTarget(AActor* Target, TSubclassOf<UGameplay
 
 	FGameplayEffectContextHandle EffectContextHandle = TargetASC->MakeEffectContext();
 	EffectContextHandle.AddSourceObject(this);
-	FGameplayEffectSpecHandle EffectHandle = TargetASC->MakeOutgoingSpec(GameplayEffectClass,1.0f, EffectContextHandle);
+	const FGameplayEffectSpecHandle EffectHandle = TargetASC->MakeOutgoingSpec(GameplayEffectClass,1.0f, EffectContextHandle);
 	TargetASC->ApplyGameplayEffectSpecToSelf(*EffectHandle.Data.Get());
 
 
