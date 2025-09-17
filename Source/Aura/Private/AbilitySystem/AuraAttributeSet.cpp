@@ -74,7 +74,7 @@ void UAuraAttributeSet::SetEffectProperties(const FGameplayEffectModCallbackData
 		Props.TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
 
 		Props.TargetCharacter= Cast<ACharacter>(Props.TargetAvatarActor);
-		UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Props.TargetAvatarActor);
+		Props.TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Props.TargetAvatarActor);
 	}
 }
 
@@ -100,7 +100,7 @@ void UAuraAttributeSet::On_Rep_MaxHealth(const FGameplayAttributeData& OldMaxHea
 
 void UAuraAttributeSet::On_Rep_Mana(const FGameplayAttributeData& OldMana) const
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAuraAttributeSet, MaxMana, OldMana);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAuraAttributeSet, Mana, OldMana);
 
 }
 
